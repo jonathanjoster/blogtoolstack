@@ -1,0 +1,10 @@
+---
+interface Props {
+  formId: string;
+}
+const { formId } = Astro.props;
+---
+<div class="lead-magnet-optin" data-kit-form-id={formId}>
+  <p>Get the free "Kit vs Top Competitors" comparison PDF.</p>
+  <script is:inline src={"https://joeljoestar.kit.com/" + formId + "/index.js"} async data-uid={formId}></script>
+</div>
