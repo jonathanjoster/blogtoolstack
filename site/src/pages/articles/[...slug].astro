@@ -1,0 +1,42 @@
+---
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const articles = await getCollection('articles');
+  return articles.map((article) => ({
+    params: { slug: article.slug },
+    props: { article },
+  }));
+}
+
+const { article } = Astro.props;
+const { Content } = await render(article);
+
+const formattedDate = article.data.pubDate.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{article.data.title} | BlogToolStack</title>
+		<meta name="description" content={article.data.description} />
+	</head>
+	<body>
+		<header>
+			<a href="/">BlogToolStack</a>
+		</header>
+		<article>
+			<h1>{article.data.title}</h1>
+			<p class="pub-date"><time datetime={article.data.pubDate.toISOString()}>{formattedDate}</time></p>
+			<Content />
+		</article>
+		<footer>
+			<p>BlogToolStack</p>
+		</footer>
+	</body>
+</html>
