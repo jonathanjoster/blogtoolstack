@@ -67,3 +67,21 @@ later.
 - **Board:** Email Marketing
 
 **Boards used (2 total, reused across pins):** "Blogging Tools", "Email Marketing" -- create both in Pinterest Business if they don't already exist, then file each pin above into the board listed.
+
+
+## First batch: execution log (2026-09-08)
+
+All 5 pins created and scheduled via Pinterest's native scheduler, using
+the copy above. Boards created: "Email Marketing", "Blogging Tools".
+
+| Article | Board | Scheduled for |
+|---|---|---|
+| Kit vs Mailchimp | Email Marketing | 2026-09-09 12:00 PM |
+| Kit vs MailerLite | Email Marketing | 2026-09-10 12:00 PM |
+| How to Set Up Your First Email List | Blogging Tools | 2026-09-11 12:00 PM |
+| Best Email Marketing Tools | Blogging Tools | 2026-09-12 12:00 PM |
+| Kit Review 2026 | Email Marketing | 2026-09-13 12:00 PM |
+
+Verified via the profile's "Scheduled Pins" section: all 5 present,
+visible only to the account owner, spread across 5 consecutive days
+(>=1 pin/day per goal.md's cadence decision).
