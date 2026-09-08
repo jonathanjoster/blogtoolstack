@@ -1,0 +1,49 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+const currentYear = new Date().getFullYear();
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		{description && <meta name="description" content={description} />}
+		<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "bc7eb24ad3e24bea9c3aad39b8052b19"}'></script><!-- End Cloudflare Web Analytics -->
+	</head>
+	<body>
+		<header class="site-header">
+			<div class="wrap site-header-inner">
+				<a class="brand" href="/">BlogToolStack</a>
+				<nav class="site-nav">
+					<a href="/">Home</a>
+					<a href="/about/">About</a>
+					<a href="/contact/">Contact</a>
+				</nav>
+			</div>
+		</header>
+		<main class="wrap site-main">
+			<slot />
+		</main>
+		<footer class="site-footer">
+			<div class="wrap site-footer-inner">
+				<p>&copy; {currentYear} BlogToolStack. All rights reserved.</p>
+				<nav class="footer-nav">
+					<a href="/about/">About</a>
+					<a href="/privacy/">Privacy Policy</a>
+					<a href="/contact/">Contact</a>
+				</nav>
+			</div>
+		</footer>
+	</body>
+</html>

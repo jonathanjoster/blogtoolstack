@@ -1,5 +1,6 @@
 ---
 import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
 
 export async function getStaticPaths() {
   const articles = await getCollection('articles');
@@ -18,26 +19,10 @@ const formattedDate = article.data.pubDate.toLocaleDateString('en-US', {
   day: 'numeric',
 });
 ---
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{article.data.title} | BlogToolStack</title>
-		<meta name="description" content={article.data.description} />
-		<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "bc7eb24ad3e24bea9c3aad39b8052b19"}'></script><!-- End Cloudflare Web Analytics -->
-	</head>
-	<body>
-		<header>
-			<a href="/">BlogToolStack</a>
-		</header>
-		<article>
-			<h1>{article.data.title}</h1>
-			<p class="pub-date"><time datetime={article.data.pubDate.toISOString()}>{formattedDate}</time></p>
-			<Content />
-		</article>
-		<footer>
-			<p>BlogToolStack</p>
-		</footer>
-	</body>
-</html>
+<BaseLayout title={`${article.data.title} | BlogToolStack`} description={article.data.description}>
+	<article>
+		<h1>{article.data.title}</h1>
+		<p class="pub-date"><time datetime={article.data.pubDate.toISOString()}>{formattedDate}</time></p>
+		<Content />
+	</article>
+</BaseLayout>
